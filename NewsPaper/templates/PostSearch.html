@@ -1,0 +1,26 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% block content %}
+ <form action="" method="get">
+        {{filterset.form.as_p}}
+        <input type="submit" value="Отправить"/>
+    </form>
+  {% if search %}
+        <table>
+            <tr>
+                <td>Заголовок</td>
+                <td>Дата</td>
+                <td>Текст</td>
+            </tr>
+            {% for ser in search %}
+            <tr>
+                <td>{{ser.title|censor}}</td>
+                <td>{{ser.date|date:'M d Y' }}</td>
+                <td>{{ser.text|truncatechars:20|censor}}</td>
+            </tr>
+            {% endfor %}
+                    </table>
+{% else %}
+    <h1>Ничего не найдено </h1>
+{% endif %}
+{% endblock content %}

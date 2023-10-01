@@ -1,0 +1,10 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block content %}
+{% csrf_token %}
+{{ form.as_p }}
+{% endblock content%}
