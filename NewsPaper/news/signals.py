@@ -31,4 +31,4 @@ def notify_about_new_post(sender,instance,**kwargs):
             subscribers_email+=[s.email for s in subscribers]
 
 
-    send_notification(instance.preview,instance.pk,instance.title,subscribers_email)
+    send_notification(instance.preview(),instance.pk,instance.title,subscribers_email)
