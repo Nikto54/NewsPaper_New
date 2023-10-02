@@ -1,0 +1,50 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+Список новостей
+{% endblock title %}
+{% load custom_filters%}
+
+{% block content %}
+{% if is_not_subscriber %}
+    <p><a href="{% url 'subscribe' category.id %}">Подписаться</a></p>
+{% endif %}
+    {% if category_news_list %}
+        <h1>Все новости</h1>
+        <table>
+            <tr>
+                <td>Заголовок</td>
+                <td>Дата</td>
+                <td>Текст</td>
+            </tr>
+            {% for new in category_news_list%}
+            <tr>
+                <td>{{new.title|censor}}</td>
+                <td>{{new.date|date:'M d Y' }}</td>
+                <td>{{new.text|truncatechars:20|censor}}</td>
+            </tr>
+            {% endfor %}
+                    </table>
+    {% else %}
+        <h1>Нет новостей</h1>
+    {% endif %}
+
+      {% if page_obj.has_previous %}
+       <a href="?page=1">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           ...
+           <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {{ page_obj.number }}
+
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+           ...
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+    {% endif %}
+    {% endif %}
+
+{% endblock content %}

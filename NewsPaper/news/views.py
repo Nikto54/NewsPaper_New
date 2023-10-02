@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
 from .models import Category,Author,Post,Comment
 from .filters import PostFilter
@@ -68,3 +69,30 @@ class PostEdit(LoginRequiredMixin,UpdateView):
 class PostDelete(DeleteView):
     model = Post
     template_name = 'PostDelete.html'
+
+class CategoryListView(PostList):
+    model=Post
+    template_name = 'Category_list.html'
+    context_object_name = 'category_news_list'
+
+    def get_queryset(self):
+        queryset=super().get_queryset()
+        self.category=get_object_or_404(Category,id=self.kwargs['pk'])
+        queryset=Post.objects.filter(categories_post=self.category)
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context['category']=self.category
+        context['is_not_subscriber']=self.request.user not in self.category.subscribers.all()
+
+        return context
+
+@login_required
+def subscribe(request,pk,):
+    user=request.user
+    category=Category.objects.get(id=pk)
+    category.subscribers.add(user)
+    message=f'Вы успешно подписались на категорию'
+
+    return render(request,'subscribe.html',{'category':category,'message':message})
