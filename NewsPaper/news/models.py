@@ -41,6 +41,8 @@ class Post(models.Model):
     categories_post = models.ManyToManyField(Category, through='PostCategory')
     rating = models.IntegerField(default=0)
 
+    def preview(self):
+        return self.text[0:123] + '...'
     def __str__(self):
         return self.title+':'+self.text[:24]
 
