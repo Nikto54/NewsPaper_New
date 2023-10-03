@@ -1,8 +1,8 @@
 import logging
-from datetime import datetime
+import datetime
 
 from django.conf import settings
-
+from news.models import Post,Category
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 from django.core.mail import EmailMultiAlternatives
@@ -19,10 +19,10 @@ logger = logging.getLogger(__name__)
 def my_job():
     today= datetime.datetime.now()
     last_week=today-datetime.timedelta(days=7)
-    from NewsPaper.news.models import Post
+
     posts=Post.objects.filter(date__gte=last_week)
     categories=set(posts.values_list('categories_post',flat=True))
-    from NewsPaper.news.models import Category
+
     subscribers=set(Category.objects.filter(title_category=categories).values_list('subscribers__email',flat=True))
 
     html_content=render_to_string(
@@ -57,7 +57,7 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(day_of_week="Tue",hour='20',minute='08'),
+            trigger=CronTrigger(day_of_week="Tue",hour='20',minute='30'),
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="my_job",  # уникальный айди
             max_instances=1,
