@@ -64,9 +64,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-
+    'django_apscheduler',
 ]
-
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25
 ACCOUNT_FORMS = {'signup': 'sign.models.BasicSignupForm'}
 SITE_ID=1
 MIDDLEWARE = [
@@ -169,4 +170,5 @@ EMAIL_HOST_USER = 'Nikto51@yandex.ru'
 EMAIL_HOST_PASSWORD = '_kEk_112'
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SITE_URL='http://127.0.0.1:8000'
 
