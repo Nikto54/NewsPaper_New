@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7b966e2-22d3-4827-a255-fb0b4b20ab7b" name="Changes" comment="add apscheduler">
-      <change afterPath="$PROJECT_DIR$/NewsPaper/news/managment/commands/runapscheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NewsPaper/templates/daily_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/NewsPaper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NewsPaper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/NewsPaper/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NewsPaper/news/managment/commands/runapscheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/management/commands/runapscheduler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NewsPaper/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NewsPaper/news/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,14 +36,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Богдан ебик/Desktop/NewsPaper_New&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Богдан ебик/Desktop/NewsPaper_New",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="NewsPaper_New" />
@@ -171,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696352171274</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add apscheduler">
+      <option name="closed" value="true" />
+      <created>1696352231161</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696352231161</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
