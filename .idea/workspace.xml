@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7b966e2-22d3-4827-a255-fb0b4b20ab7b" name="Changes" comment="asdasdasd">
-      <change afterPath="$PROJECT_DIR$/NewsPaper/news/managment/commands/runscheduler.py" afterDir="false" />
+    <list default="true" id="f7b966e2-22d3-4827-a255-fb0b4b20ab7b" name="Changes" comment="add apscheduler">
+      <change afterPath="$PROJECT_DIR$/NewsPaper/news/managment/commands/runapscheduler.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/NewsPaper/templates/daily_post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/NewsPaper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/NewsPaper.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -163,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696182788335</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add apscheduler">
+      <option name="closed" value="true" />
+      <created>1696352171274</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696352171274</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +187,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="asdasdasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasdasd" />
+    <MESSAGE value="add apscheduler" />
+    <option name="LAST_COMMIT_MESSAGE" value="add apscheduler" />
   </component>
 </project>
