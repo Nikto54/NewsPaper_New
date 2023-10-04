@@ -1,6 +1,6 @@
 import logging
 import datetime
-
+from django.utils import timezone
 from django.conf import settings
 from news.models import Post,Category
 from apscheduler.schedulers.blocking import BlockingScheduler
@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # наша задача по выводу текста на экран
 def my_job():
-    today= datetime.datetime.now()
+    today= timezone.now()
     last_week=today-datetime.timedelta(days=7)
 
     posts=Post.objects.filter(date__gte=last_week)
@@ -57,7 +57,7 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(day_of_week="Tue",hour='20',minute='38'),
+            trigger=CronTrigger(day_of_week="Wed",hour='13',minute='31'),
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="my_job",  # уникальный айди
             max_instances=1,
