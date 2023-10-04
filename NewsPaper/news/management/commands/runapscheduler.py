@@ -20,7 +20,7 @@ def my_job():
     today = timezone.now()
     last_week = today - datetime.timedelta(days=7)
     posts = Post.objects.filter(date__gte=last_week)
-    categories = set(posts.values_list('categories_post', flat=True))
+    categories = set(posts.values_list('categories_post__title_category', flat=True))
     subscribers = set(Category.objects.filter(title_category__in=categories).values_list('subscribers__email',flat=True))
     html_content = render_to_string(
         'daily_post.html', {
@@ -55,7 +55,7 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             my_job,
-            trigger=CronTrigger(second='*/10'),
+            trigger=CronTrigger(day_of_week="mon", hour="00", minute="00"),
             # То же, что и интервал, но задача тригера таким образом более понятна django
             id="my_job",  # уникальный айди
             max_instances=1,
