@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from .tasks import send_notifications
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView,DetailView,CreateView,UpdateView,DeleteView
@@ -9,6 +9,7 @@ from .forms import PostForm
 from django.db.models.functions import Coalesce
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class PostSearch(ListView):
     model = Post
@@ -52,12 +53,14 @@ class PostCreate(CreateView):
     success_url = reverse_lazy('post_list')
 
     def form_valid(self, form):
-        self.object = form.save(commit=False)
+        post = form.save(commit=False)
         if 'news' in self.request.path:
             type = 'news'
         elif 'articles' in self.request.path:
             type = 'article'
-        self.object.type = type
+        post.type = type
+        post.save()
+        send_notifications.delay(post.pk)
         return super().form_valid(form)
 
 class PostEdit(LoginRequiredMixin,UpdateView):
