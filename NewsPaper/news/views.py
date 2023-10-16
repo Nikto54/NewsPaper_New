@@ -1,4 +1,7 @@
 from datetime import datetime
+
+from django.views.decorators.cache import cache_page
+
 from .tasks import send_notifications
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
@@ -9,6 +12,7 @@ from .forms import PostForm
 from django.db.models.functions import Coalesce
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 class PostSearch(ListView):
